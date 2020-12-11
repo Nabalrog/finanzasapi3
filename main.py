@@ -1,7 +1,7 @@
 
 from db.user_db import get_user, create_user
 from db.Data_db import get_data, crear_data
-from models.user_models import UserIn, UserOut
+from models.user_models import UserIn
 from models.data_models import DataIn
 from fastapi import FastAPI
 from fastapi import HTTPException
@@ -11,21 +11,19 @@ api = FastAPI()
 
 
 @api.get("/user/{username}")
-async def obtain_user(usuariobuscado: UserOut):
-    user_in_db = get_user(usuariobuscado.username)
+async def obtain_user(username: str):
+    user_in_db = get_user(username)
     if user_in_db is None:
         raise HTTPException(status_code=404, detail="El usuario no existe")
-    if user_in_db.password != usuariobuscado.password:
-        return {"Autenticado": False}
-    return {"hola:{user_in_db}"}
+    return {"hola:"+user_in_db.username}
 
 
-@api.post("/user/{username}")
+@api.post("/user/")
 async def postear_user(usuarioacrear: UserIn):
     new_User = create_user(usuarioacrear)
     if new_User == "":
         raise HTTPException(status_code=404, detail="No digito usuario ")
-    return {"hola:{new_User}, bienvenido"}
+    return {"hola, bienvenido"}
 
 
 @api.get("/DataOut/{nombreGasto}")
