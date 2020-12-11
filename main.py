@@ -2,9 +2,11 @@
 from db.user_db import get_user, create_user
 from db.Data_db import get_data, crear_data
 from models.user_models import UserIn, UserOut
-from models.data_models import DataIn, DataOut
+from models.data_models import DataIn
 from fastapi import FastAPI
 from fastapi import HTTPException
+
+
 api = FastAPI()
 
 
@@ -27,17 +29,16 @@ async def postear_user(usuarioacrear: UserIn):
 
 
 @api.get("/DataOut/{nombreGasto}")
-async def obtain_data(nombreGbuscado: DataOut):
-    nombreData_in_db = get_data(nombreGbuscado.nombre_Gasto)
-    gastoData_in_db = get_data(nombreGbuscado.valor)
+async def obtain_data(nombreGasto: str):
+    nombreData_in_db = get_data(nombreGasto)
     if nombreData_in_db is None:
         raise HTTPException(status_code=404, detail="el gasto no existe")
-    return gastoData_in_db
+    return nombreData_in_db
 
 
-@api.post("/DataIn/{nombreGasto}")
+@api.post("/DataIn/")
 async def postear_data(dataacrear: DataIn):
     new_data = crear_data(dataacrear)
     if new_data == "":
-        raise HTTPException(status_code=404, detail="No digito usuario ")
+        raise HTTPException(status_code=404, detail="No creo gasto ")
     return new_data
