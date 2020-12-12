@@ -20,6 +20,7 @@ def get_data(nombreGasto: str):
 database_transactions = []
 generator = {"id": 0}
 
+
 def crear_data(creardata_in_db: DataInDB):
     database_data[creardata_in_db.nombreGasto] = creardata_in_db
     database_data[creardata_in_db.valor] = creardata_in_db
