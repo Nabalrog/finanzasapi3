@@ -11,8 +11,8 @@ database_data = Dict[str, DataInDB]
 
 
 def get_data(nombreGasto: str):
-    if nombreGasto in database_transactions.keys():
-        return database_transactions[nombreGasto]
+    if nombreGasto in database_data.keys():
+        return database_data[nombreGasto]
     else:
         return None
 
