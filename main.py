@@ -5,9 +5,17 @@ from models.user_models import UserIn
 from models.data_models import DataIn
 from fastapi import FastAPI
 from fastapi import HTTPException
-
+from fastapi.middleware.cors import CORSMiddleware
+origins = ["http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+           "http://localhost", "http://localhost:8080",
+           ]
 
 api = FastAPI()
+
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins, allow_credentials=True,
+    allow_methods=["*"], allow_headers=["*"],
+)
 
 
 @api.get("/user/{username}")
