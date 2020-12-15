@@ -31,6 +31,6 @@ def crear_data(creardata_in_db: DataInDB):
 
 
 database_data = {
-    "Gasto1": DataInDB(**{"nombreGasto": "peluqueria", "valor": 5000}),
+    "gasto1": DataInDB(**{"nombreGasto": "peluqueria", "valor": 5000}),
 
 }
