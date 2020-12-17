@@ -44,7 +44,7 @@ async def obtain_data(nombreGasto: str):
     return nombreData_in_db
 
 
-@api.getall("/DataOut/")
+@api.get("/DataOut/")
 async def obtenertodos():
     
     return get_alldata()
