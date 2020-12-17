@@ -1,6 +1,6 @@
 
 from db.user_db import get_user, create_user
-from db.Data_db import get_data, crear_data
+from db.Data_db import get_data, crear_data, get_alldata
 from models.user_models import UserIn
 from models.data_models import DataIn
 from fastapi import FastAPI
@@ -45,7 +45,7 @@ async def obtain_data(nombreGasto: str):
 
 
 @api.getall("/DataOut/")
-async def get_alldata():
+async def obtenertodos():
     
     return get_alldata()
 
