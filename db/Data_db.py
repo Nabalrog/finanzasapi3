@@ -18,7 +18,7 @@ def get_data(nombreGasto: str):
 
 
 def get_alldata():
-    return database_data
+    return database_transactions
 
 
 database_transactions = []
