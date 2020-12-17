@@ -50,3 +50,5 @@ async def postear_data(dataacrear: DataIn):
     if new_data == "":
         raise HTTPException(status_code=404, detail="No creo gasto ")
     return new_data
+
+
