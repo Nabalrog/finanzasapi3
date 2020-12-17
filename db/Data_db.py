@@ -17,6 +17,10 @@ def get_data(nombreGasto: str):
         return None
 
 
+def get_alldata():
+    return database_data
+
+
 database_transactions = []
 generator = {"id": 0}
 

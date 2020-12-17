@@ -44,6 +44,12 @@ async def obtain_data(nombreGasto: str):
     return nombreData_in_db
 
 
+@api.getall("/DataOut/")
+async def get_alldata():
+    
+    return get_alldata()
+
+
 @api.post("/DataIn/")
 async def postear_data(dataacrear: DataIn):
     new_data = crear_data(dataacrear)
