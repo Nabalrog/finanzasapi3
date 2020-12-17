@@ -17,9 +17,6 @@ def get_data(nombreGasto: str):
         return None
 
 
-
-
-
 database_transactions = []
 generator = {"id": 0}
 
@@ -32,8 +29,10 @@ def crear_data(creardata_in_db: DataInDB):
 
     return database_transactions
 
+
 def get_alldata():
     return database_transactions
+
 
 database_data = {
     "gasto1": DataInDB(**{"nombreGasto": "peluqueria", "valor": 5000}),
