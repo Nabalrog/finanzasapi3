@@ -1,6 +1,7 @@
 
 from db.user_db import get_user, create_user
 from db.Data_db import get_data, crear_data, get_alldata
+from db.Frase_db import create_frase
 from models.user_models import UserIn
 from models.data_models import DataIn
 from fastapi import FastAPI
@@ -59,4 +60,11 @@ async def postear_data(dataacrear: DataIn):
         raise HTTPException(status_code=404, detail="No creo gasto ")
     return new_data
 
+
+@api.post("/DataIn/frases/")
+async def postear_frase(dataacrear: DataIn):
+    new_data = create_frase(dataacrear)
+    if new_data == "":
+        raise HTTPException(status_code=404, detail="No creo frase ")
+    return new_data
 
